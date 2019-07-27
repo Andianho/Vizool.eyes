@@ -1,0 +1,173 @@
+<div class="parent dark-blue-bg">
+  <div [class.hidden]="isFieldFocussed">
+    <header></header>
+  </div>
+  <div class="patient-indicator-title-wrapper" [class.hidden]="isFieldFocussed">
+    <h1>Patient Indicators</h1>
+  </div>
+
+  <div class="patient-indicator-wrapper" [class.form-focussed]="isFieldFocussed">
+    <div class="patient-indicator-form">
+      <div class="col-6 pull-left" style="position: relative">
+        <div class="label">CD4 Count</div>
+        <input class="md-input" id="cd4count" [class.input-error]="cd4countError" [(ngModel)]="cd4count" (focus)="onFocus($event)" placeholder="CD4 Count" />
+        <div *ngIf="cd4countError" class="validation-error-wrapper validaion-error-small">
+          <div></div>
+          <p>Error: Only numbers allowed</p>
+        </div>
+      </div>
+      <div class="col-6 pull-right">
+        <div class="label">Date</div>
+        <div class="md-input date-picker"
+             [ngStyle]="{'color': cd4Date === 'Select date' ? '#aeaeae' : '#162E6E'}"
+             (click)="selectCDCount()">{{cd4Date}}</div>
+      </div>
+      <div class="col-6 pull-left" style="position: relative">
+        <div class="label">Viral Load</div>
+        <input class="md-input" id="viralLoad" [class.input-error]="viralLoadError" [(ngModel)]="viralLoad" (focus)="onFocus($event)" placeholder="Viral Load" />
+        <div *ngIf="viralLoadError" class="validation-error-wrapper validaion-error-small">
+          <div></div>
+          <p>Error: Only numbers allowed</p>
+        </div>
+      </div>
+      <div class="col-6 pull-right">
+        <div class="label">Date</div>
+        <div class="md-input date-picker"
+             [ngStyle]="{'color': viralLoadDate === 'Select date' ? '#aeaeae' : '#162E6E'}"
+             (click)="selectViralLoad()">{{viralLoadDate}}</div>
+      </div>
+      <div class="pull-right select-box">
+        <div class="label">Mode of Transmission</div>
+          <select
+            (change)="setModeTransmission($event)"
+            [ngStyle]="{'color': modeTransmission === 'default' ? '#aeaeae' : '#162E6E'}">
+            <option value="default">Please choose</option>
+            <option value="a">A</option>
+            <option value="b">B</option>
+            <option value="c">C</option>
+          </select>
+      </div>
+      <div class="pull-right select-box">
+        <div class="label">ARV Regime</div>
+          <select
+            (change)="setArv($event)"
+            [ngStyle]="{'color': arv === 'default' ? '#aeaeae' : '#162E6E'}">
+            <option value="default">Please choose</option>
+            <option value="a">A</option>
+            <option value="b">B</option>
+            <option value="c">C</option>
+          </select>
+      </div>
+      <div class="col-6 pull-left">
+        <div class="label">TB Diagnosis</div>
+        <div class="custom-select">
+          <div class="left"
+            (click)="setTb('No')"
+            [class.tbDiagnosis-active-left]="tbDiagnosis === 'No'">No</div>
+          <div class="right"
+            (click)="setTb('Yes')"
+            [class.tbDiagnosis-active-right]="tbDiagnosis === 'Yes'">Yes</div>
+        </div>
+
+      </div>
+      <div class="col-6 pull-right">
+        <div class="label">(If Yes) TB Diagnosis Date</div>
+        <div class="md-input date-picker"
+             [ngStyle]="{'color': tbDiagnosisDate === 'Select date' ? '#aeaeae' : '#162E6E'}"
+             (click)="selectTbDiagnosis()">{{tbDiagnosisDate}}</div>
+      </div>
+      <div class="pull-right select-box">
+        <div class="label">Co-morbidities</div>
+        <select
+          (change)="setCoMorbidities($event)"
+          [ngStyle]="{'color': coMorbidities === 'default' ? '#aeaeae' : '#162E6E'}">
+          <option value="default">Please choose</option>
+          <option value="f">Female</option>
+          <option value="m">Male</option>
+        </select>
+      </div>
+      <div class="adherence-wrapper">
+        <div *ngIf="isMedicationsVisible" class="tooltip">
+          Adherence to Medications
+          <div class="arrow"></div>
+        </div>
+        <div class="label mt-20">Adherence to Medications<img src="assets/images/infoIcon.svg" class="info-icon info-one" (click)="toggleMedications()" /></div>
+        <div class="adherence-block">
+            <div class="left">
+              In the last <strong>7 days</strong>, on  how many days did you not take your medication?
+            </div>
+            <div class="right">
+              <input class="digit-input" id="non_medication_days_7" [(ngModel)]="non_medication_days_7" [class.input-error]="non_medication_days_7Error" (focus)="onFocus($event)" placeholder="0" />
+            </div>
+            <div *ngIf="non_medication_days_7Error" class="validation-error-wrapper">
+              <div></div>
+              <p>Error: Only numbers allowed</p>
+            </div>
+        </div>
+        <div class="adherence-block">
+          <div class="left">
+            In the last <strong>30 days</strong>, on  how many days did you not take your medication?
+          </div>
+          <div class="right">
+            <input class="digit-input" id="non_medication_days_30" [(ngModel)]="non_medication_days_30" [class.input-error]="non_medication_days_30Error" (focus)="onFocus($event)" placeholder="0" />
+          </div>
+          <div *ngIf="non_medication_days_30Error" class="validation-error-wrapper">
+            <div></div>
+            <p>Error: Only numbers allowed</p>
+          </div>
+        </div>
+      </div>
+      <div class="adherence-wrapper">
+        <div *ngIf="isClinicVisitsVisible" class="tooltip">
+          Adherence to Clinic Visits
+          <div class="arrow"></div>
+        </div>
+        <div class="label mt-20">Adherence to Clinic Visits<img src="assets/images/infoIcon.svg" class="info-icon info-two" (click)="toggleClinic()" /></div>
+        <div class="adherence-block">
+            <div class="left">
+              Did you attend your last scheduled appointment?
+            </div>
+            <div class="right">
+              <input class="digit-input" id="attended_last_appointment" [class.input-error]="attended_last_appointmentError" [(ngModel)]="attended_last_appointment" (focus)="onFocus($event)" placeholder="0" />
+            </div>
+            <div *ngIf="attended_last_appointmentError" class="validation-error-wrapper">
+              <div></div>
+              <p>Error: Only numbers allowed</p>
+            </div>
+        </div>
+        <div class="adherence-block">
+          <div class="left">
+            In the last <strong>3 months</strong> did you attend your scheduled appointments?
+          </div>
+          <div class="right">
+            <input class="digit-input" id="missed_appointments_3_months" [class.input-error]="missed_appointments_3_monthsError" [(ngModel)]="missed_appointments_3_months" (focus)="onFocus($event)" placeholder="0" />
+          </div>
+          <div *ngIf="missed_appointments_3_monthsError" class="validation-error-wrapper">
+            <div></div>
+            <p>Error: Only numbers allowed</p>
+          </div>
+        </div>
+        <div class="adherence-block">
+          <div class="left">
+            In the last <strong>6 months</strong> did you attend your scheduled appointments?
+          </div>
+          <div class="right">
+            <input class="digit-input" id="missed_appointments_6_months" [class.input-error]="missed_appointments_6_monthsError" [(ngModel)]="missed_appointments_6_months" (focus)="onFocus($event)" placeholder="0" />
+          </div>
+          <div *ngIf="missed_appointments_6_monthsError" class="validation-error-wrapper">
+            <div></div>
+            <p>Error: Only numbers allowed</p>
+          </div>
+        </div>
+      </div>
+      <div class="adherence-wrapper">
+        <div class="label">Comments</div>
+        <textarea class="comments-block" [(ngModel)]="comments" (focus)="onFocus($event)"></textarea>
+      </div>
+    </div>
+    <div class="btn btn-save" (click)="save()">
+      <p>Save</p>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,12 @@
+<div class="header">
+  <div class="sign-out-wrapper" (click)="onSignOut()">
+    <img src="assets/images/ico-lock.svg" />
+    <p>Sign Out</p>
+  </div>
+
+  <div class="upload-wrapper" (click)="onUpload()">
+    <img src="assets/images/ico-upload.svg" />
+    <img *ngIf="isUploadComplete" src="assets/images/icoTick.svg" class="tick" />
+    <p>Upload Data</p>
+  </div>
+</div>

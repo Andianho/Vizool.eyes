@@ -1,0 +1,120 @@
+.build-home {
+
+  .boy {
+    top: 53px;
+    left: 361px;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .girl {
+    top: 91px;
+    left: 369px;
+    position: absolute;
+    z-index: 1;
+  }
+
+  #girl-shadow {
+    position: absolute;
+    top: 664px;
+    left: 413px;
+
+    g:first-child {
+      fill: #F2D23A;
+    }
+  }
+
+  #boy-shadow {
+    position: absolute;
+    top: 664px;
+    left: 413px;
+
+    g:first-child {
+      fill: #F2D23A;
+    }
+  }
+
+  .home-options {
+    width: 250px;
+    height: 100%;
+    position: absolute;
+    top: 6px;
+    left: 910px;
+    overflow: scroll;
+    padding: 20px;
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: flex;
+        width: 210px;
+        height: 210px;
+        border-radius: 50%;
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        margin-bottom: 20px;
+        position: relative;
+
+        img {
+          margin: 0 auto;
+        }
+      }
+    }
+
+  }
+}
+
+.home-options-tabs {
+  position: absolute;
+  right: 45px;
+  top: 231px;
+  height: 385px;
+
+  .tab {
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #AA68CC;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    transition: all 200ms ease-in-out;
+
+    svg {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  .active-tab {
+    transform: scale(1.6, 1.6);
+    background-color: #fff;
+  }
+
+  .tab-1 {
+    top: 0
+  }
+
+  .tab-2 {
+    top: 81px;
+    padding-top: 10px;
+  }
+
+  .tab-3 {
+    top: 162px;
+    padding-top: 11px;
+  }
+
+  .tab-4 {
+    top: 243px;
+    padding-top: 15px;
+  }
+
+
+  .isActiveIcon {
+    fill: "#FF6764"
+  }
+}

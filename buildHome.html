@@ -1,0 +1,179 @@
+<div class="parent yellow-bg build-home">
+  <img class="{{gender}} z-0" src="assets/images/{{gender}}Naked.svg" />
+  <img [ngStyle]="{'top.px': selected.hair.position[0],'left.px':selected.hair.position[1],'width.px':selected.hair.width}" class="ui-element z-2" src="assets/images/{{gender}}/Hair/{{selected.hair.src}}.svg" />
+  <img [ngStyle]="{'top.px': selected.tops.position[0],'left.px':selected.tops.position[1],'width.px':selected.tops.width}" class="ui-element z-3" src="assets/images/{{gender}}/Tops/{{selected.tops.src}}.svg" />
+  <img [ngStyle]="{'top.px': selected.pants.position[0],'left.px':selected.pants.position[1],'width.px':selected.pants.width}" class="ui-element z-2" src="assets/images/{{gender}}/Pants/{{selected.pants.src}}.svg" />
+  <img [ngStyle]="{'top.px': selected.shoes.position[0],'left.px':selected.shoes.position[1],'width.px':selected.shoes.width}" class="ui-element z-1" src="assets/images/{{gender}}/Shoes/{{selected.shoes.src}}.svg" />
+  <img [ngStyle]="{'top.px': selected.accessories.position[0],'left.px':selected.accessories.position[1],'width.px':selected.accessories.width}" class="ui-element z-2" src="assets/images/{{gender}}/Accessories/{{selected.accessories.src}}.svg" />
+  <img *ngIf="selectedHouse"
+       [ngStyle]="{'top.px': selected.houses.position[0],'left.px':selected.houses.position[1],'width.px':selected.houses.width}" class="ui-element z-0" src="assets/images/House/{{selected.houses.src}}.svg" />
+  <img *ngIf="selectedFamily"
+       [ngStyle]="{'top.px': selected.family.position[0],'left.px':selected.family.position[1],'width.px':selected.family.width}" class="ui-element z-2" src="assets/images/Family/{{selected.family.src}}.svg" />
+
+  <!-- pets -->
+  <img *ngIf="pets.indexOf('Dog') !== -1"
+       [ngStyle]="{'top.px': homeData.pets[0].position[0],'left.px':homeData.pets[0].position[1],'width.px':homeData.pets[0].width}" class="ui-element z-2" src="assets/images/Pets/{{homeData.pets[0].src}}.svg" />
+  <img *ngIf="pets.indexOf('Cat') !== -1"
+       [ngStyle]="{'top.px': homeData.pets[1].position[0],'left.px':homeData.pets[1].position[1],'width.px':homeData.pets[1].width}" class="ui-element z-2" src="assets/images/Pets/{{homeData.pets[1].src}}.svg" />
+
+  <!-- farm animals -->
+  <img *ngIf="farmAnimals.indexOf('Cow') !== -1"
+       [ngStyle]="{'top.px': homeData.farmAnimals[0].position[0],'left.px':homeData.farmAnimals[0].position[1],'width.px':homeData.farmAnimals[0].width}" class="ui-element z-2" src="assets/images/Farm-Animals/{{homeData.farmAnimals[0].src}}.svg" />
+  <img *ngIf="farmAnimals.indexOf('Goat') !== -1"
+       [ngStyle]="{'top.px': homeData.farmAnimals[1].position[0],'left.px':homeData.farmAnimals[1].position[1],'width.px':homeData.farmAnimals[1].width}" class="ui-element z-2" src="assets/images/Farm-Animals/{{homeData.farmAnimals[1].src}}.svg" />
+  <img *ngIf="farmAnimals.indexOf('Sheep') !== -1"
+       [ngStyle]="{'top.px': homeData.farmAnimals[2].position[0],'left.px':homeData.farmAnimals[2].position[1],'width.px':homeData.farmAnimals[2].width}" class="ui-element z-2" src="assets/images/Farm-Animals/{{homeData.farmAnimals[2].src}}.svg" />
+  <img *ngIf="farmAnimals.indexOf('Pig') !== -1"
+       [ngStyle]="{'top.px': homeData.farmAnimals[3].position[0],'left.px':homeData.farmAnimals[3].position[1],'width.px':homeData.farmAnimals[3].width}" class="ui-element z-2" src="assets/images/Farm-Animals/{{homeData.farmAnimals[3].src}}.svg" />
+  <img *ngIf="farmAnimals.indexOf('Chicken') !== -1"
+       [ngStyle]="{'top.px': homeData.farmAnimals[4].position[0],'left.px':homeData.farmAnimals[4].position[1],'width.px':homeData.farmAnimals[4].width}" class="ui-element z-2" src="assets/images/Farm-Animals/{{homeData.farmAnimals[4].src}}.svg" />
+
+  <img *ngIf="selectedFarmAnimals"
+       [ngStyle]="{'top.px': selected.farmAnimals.position[0],'left.px':selected.farmAnimals.position[1],'width.px':selected.farmAnimals.width}" class="ui-element z-2" src="assets/images/Farm-Animals/{{selected.farmAnimals.src}}.svg" />
+  <svg id="{{gender}}-shadow" width="178px" height="29px" viewBox="0 0 178 29">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+      <g transform="translate(-887.000000, -683.000000)">
+        <path d="M920.750129,683.038484 C904.173956,685.978695 897.858728,689.671851 890.977175,694.42076 C886.123941,697.769941 885.242876,702.252552 890.977175,705.882912 C905.788667,715.260005 930.525984,711.211335 933.567109,710.661886 C936.608234,710.112436 974.009532,705.882912 985.357013,705.882912 C996.704494,705.882912 1011.41083,705.882912 1038.06606,705.882912 C1064.7213,705.882912 1069.80213,703.051486 1061.0901,697.704741 C1055.28208,694.140244 1039.91665,694.140244 1014.9938,697.704741 L933.567109,693.611869 C927.568973,686.111255 923.296646,682.586794 920.750129,683.038484 Z"></path>
+      </g>
+    </g>
+  </svg>
+  <div class="home-options" [ngStyle]="{'overflow': activeTab === 'Pets' ? 'hidden' : 'scroll'}">
+    <ul *ngIf="activeTab === 'House'">
+      <li *ngFor="let item of homeData.houses" (click)="onSelectHouse(item)">
+        <div *ngIf="selected.houses.src === item.src && selectedHouse === true" class="active-tab-item-purple"></div>
+        <img
+          [ngStyle]="{'width.px': item.icon.width}"
+          src="assets/images/{{activeTab}}/{{item.icon.src}}.svg"  viewBox="0 0 178 29">
+      </li>
+    </ul>
+    <ul *ngIf="activeTab === 'Family'">
+      <li *ngFor="let item of homeData.family" (click)="onSelectFamily(item)">
+        <div *ngIf="selected.family.src === item.src && selectedFamily === true" class="active-tab-item-purple"></div>
+        <img
+          [ngStyle]="{'width.px': item.icon.width}"
+          src="assets/images/{{activeTab}}/{{item.icon.src}}.svg"  viewBox="0 0 178 29">
+      </li>
+    </ul>
+    <ul *ngIf="activeTab === 'Pets'">
+      <li *ngFor="let item of homeData.pets" (click)="onTogglePets(item.src)">
+        <div *ngIf="pets.indexOf(item.src) !== -1" class="active-tab-item-purple">
+          <div class="close-icon"><img src="assets/images/iconClose.svg" /></div>
+        </div>
+        <img
+          [ngStyle]="{'width.px': item.icon.width}"
+          src="assets/images/{{activeTab}}/{{item.icon.src}}.svg"  viewBox="0 0 178 29">
+      </li>
+    </ul>
+    <ul *ngIf="activeTab === 'FarmAnimals'">
+      <li *ngFor="let item of homeData.farmAnimals" (click)="onToggleFarmAnimals(item.src)">
+        <div *ngIf="farmAnimals.indexOf(item.src) !== -1" class="active-tab-item-purple">
+          <div class="close-icon"><img src="assets/images/iconClose.svg" /></div>
+        </div>
+        <img
+          [ngStyle]="{'width.px': item.icon.width}"
+          src="assets/images/Farm-Animals/{{item.icon.src}}.svg"  viewBox="0 0 178 29">
+      </li>
+    </ul>
+  </div>
+  <div class="home-options-tabs">
+    <div (click)="onSelectTab('House')" class="tab active-tab tab-1"
+         [class.active-tab]="activeTab === 'House'">
+      <div *ngIf="errorHouse" class="alert-badge">
+        <img src="assets/images/iconExclamation.svg" />
+      </div>
+      <svg width="35px" height="44px" viewBox="0 0 52 44" style="margin-top: 2px">
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="9-Context-1-Girl" transform="translate(-1184.000000, -258.000000)" fill="#AA68CC">
+            <g id="mainNav" transform="translate(1170.000000, 240.000000)"
+               [ngStyle]="{'fill': activeTab === 'House' ? '#AA68CC' : '#FFFFFF'}">
+              <g id="itemHouseActive">
+                <path d="M27.5827852,53.2580575 L36.8550708,53.2580575 L36.8550708,44.6546122 L27.5827852,44.6546122 L27.5827852,53.2580575 Z M64.318012,36.0346709 L41.8938674,18.761796 C40.8066271,17.9249959 39.2889895,17.9294948 38.2047485,18.7707939 L15.7521107,36.2176272 C14.5254037,37.1713994 14.1160014,38.9109839 14.925808,40.2366673 C15.5061694,41.1889399 16.500432,41.6898203 17.5081913,41.6898203 C18.1545369,41.6898203 18.8053815,41.4843693 19.3557501,41.0569714 L21.8361577,39.128432 L21.8361577,61.1086826 C21.8361577,61.5240834 22.1735771,61.8630024 22.5889779,61.8630024 L42.2852739,61.8630024 L42.2852739,44.6546122 L52.4003582,44.6546122 L52.4003582,61.8630024 L57.5201355,61.8630024 C57.9355363,61.8630024 58.2729557,61.5240834 58.2729557,61.1086826 L58.2729557,38.9919646 L60.5029231,40.7090545 C61.797114,41.7048167 63.7016592,41.6298346 64.7649052,40.3896308 C65.8971348,39.0684463 65.6811864,37.0844202 64.318012,36.0346709 L64.318012,36.0346709 Z" id="iconHouse"></path>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div (click)="onSelectTab('Family')" class="tab active-tab tab-2"
+         [class.active-tab]="activeTab === 'Family'">
+      <div *ngIf="errorFamily" class="alert-badge">
+        <img src="assets/images/iconExclamation.svg" />
+      </div>
+      <svg width="29px" height="34px" viewBox="0 0 29 34" style="margin-top: -2px">
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="9-Context-1-Girl" transform="translate(-1195.000000, -343.000000)" fill="#FFFFFF">
+            <g id="mainNav" transform="translate(1170.000000, 240.000000)"
+               [ngStyle]="{'fill': activeTab === 'Family' ? '#AA68CC' : '#FFFFFF'}">
+              <g id="itemFamily" transform="translate(15.000000, 95.000000)">
+                <g id="iconFamily" transform="translate(10.500000, 8.000000)">
+                  <path d="M8.4422,8.0792 C10.1612,8.0792 11.5682,6.6722 11.5682,4.9532 L11.5682,3.1262 C11.5682,1.4062 10.1612,0.0002 8.4422,0.0002 C6.7232,0.0002 5.3162,1.4062 5.3162,3.1262 L5.3162,4.9532 C5.3162,6.6722 6.7232,8.0792 8.4422,8.0792" id="Fill-1"></path>
+                  <path d="M20.0335,8.0792 C21.7525,8.0792 23.1595,6.6722 23.1595,4.9532 L23.1595,3.1262 C23.1595,1.4062 21.7525,0.0002 20.0335,0.0002 C18.3145,0.0002 16.9075,1.4062 16.9075,3.1262 L16.9075,4.9532 C16.9075,6.6722 18.3145,8.0792 20.0335,8.0792" id="Fill-3"></path>
+                  <path d="M16.8172,20.7149 C16.0562,21.2699 15.1282,21.6069 14.1162,21.6069 C13.1052,21.6069 12.1772,21.2699 11.4162,20.7149 C11.0022,20.8739 10.7042,21.2709 10.7042,21.7379 L10.7042,27.2569 C10.7042,27.8629 11.2002,28.3609 11.8072,28.3609 L12.1532,28.3609 L12.1532,32.8669 C12.1532,33.4749 12.6502,33.9709 13.2562,33.9709 L14.9772,33.9709 C15.5842,33.9709 16.0802,33.4749 16.0802,32.8669 L16.0802,28.3609 L16.4262,28.3609 C17.0322,28.3609 17.5292,27.8629 17.5292,27.2569 L17.5292,21.7379 C17.5292,21.2709 17.2312,20.8739 16.8172,20.7149" id="Fill-5"></path>
+                  <path d="M10.1531,29.8819 C9.2831,29.3309 8.7041,28.3609 8.7041,27.2569 L8.7041,21.7379 C8.7041,20.6689 9.2481,19.7239 10.0741,19.1659 C9.7241,18.5159 9.5061,17.7839 9.5061,16.9959 L9.5061,15.4709 C9.5061,12.9689 11.5121,10.9369 13.9981,10.8719 L13.8401,10.2979 C13.8111,10.1939 13.7721,10.0949 13.7241,10.0019 C13.6091,9.5199 13.1751,9.1569 12.6591,9.1569 L10.8431,9.1569 L6.0411,9.1569 L4.2251,9.1569 C3.9311,9.1569 3.6641,9.2759 3.4671,9.4649 C3.1941,9.6649 2.9801,9.9479 2.8841,10.2979 L0.0551,20.5759 C-0.1709,21.4009 0.3171,22.2589 1.1411,22.4859 L1.1411,22.4859 C1.9641,22.7129 2.8231,22.2239 3.0501,21.4009 L4.4721,16.2339 L4.4721,19.6479 L2.4061,28.5679 L5.0291,28.5679 L5.0291,32.0829 C5.0291,33.1379 5.8921,33.9999 6.9461,33.9999 L9.9371,33.9999 C10.0821,33.9999 10.2221,33.9809 10.3591,33.9489 C10.2321,33.6109 10.1531,33.2489 10.1531,32.8669 L10.1531,29.8819 Z" id="Fill-7"></path>
+                  <path d="M28.4183,20.5763 L25.5893,10.2983 C25.4953,9.9533 25.2853,9.6733 25.0183,9.4733 C24.8193,9.2783 24.5483,9.1573 24.2503,9.1573 L22.4373,9.1573 L17.6333,9.1573 L15.8163,9.1573 C15.5183,9.1573 15.2473,9.2783 15.0483,9.4733 C14.7813,9.6733 14.5723,9.9533 14.4773,10.2983 L14.3163,10.8813 C16.7643,10.9883 18.7273,12.9973 18.7273,15.4713 L18.7273,16.9963 C18.7273,17.7843 18.5093,18.5153 18.1593,19.1663 C18.9853,19.7233 19.5293,20.6693 19.5293,21.7383 L19.5293,27.2573 C19.5293,28.3603 18.9503,29.3313 18.0803,29.8823 L18.0803,32.8673 C18.0803,33.2583 17.9993,33.6293 17.8673,33.9733 C17.9543,33.9843 18.0403,34.0003 18.1303,34.0003 L21.9373,34.0003 C23.0743,34.0003 24.0053,33.0693 24.0053,31.9313 L24.0053,23.4153 L24.0053,21.8093 L24.0053,16.2453 L25.4233,21.4003 C25.6503,22.2233 26.5093,22.7133 27.3333,22.4863 L27.3333,22.4853 C28.1563,22.2593 28.6453,21.4003 28.4183,20.5763" id="Fill-10"></path>
+                  <path d="M11.5061,15.4708 L11.5061,16.9958 C11.5061,18.4318 12.6811,19.6068 14.1161,19.6068 C15.5521,19.6068 16.7271,18.4318 16.7271,16.9958 L16.7271,15.4708 C16.7271,14.0348 15.5521,12.8608 14.1161,12.8608 C12.6811,12.8608 11.5061,14.0348 11.5061,15.4708" id="Fill-13"></path>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div (click)="onSelectTab('Pets')" class="tab active-tab tab-3"
+         [class.active-tab]="activeTab === 'Pets'">
+      <svg width="36px" height="29px" viewBox="0 0 36 29">
+        <defs>
+          <polygon id="path-1" points="0.113946804 28.8 24.8511028 28.8 24.8511028 0.822048 0.113946804 0.822048"></polygon>
+          <polygon id="path-3" points="5.56221735e-16 14.323776 5.56221735e-16 0.000981016988 10.458816 0.000981016989 10.458816 14.323776"></polygon>
+        </defs>
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="9-Context-1-Girl" transform="translate(-1192.000000, -425.000000)">
+            <g id="mainNav" transform="translate(1170.000000, 240.000000)" [ngStyle]="{'fill': activeTab === 'Pets' ? '#AA68CC' : '#FFFFFF'}">
+              <g id="itemPets" transform="translate(15.000000, 175.000000)">
+                <g id="iconPets" transform="translate(7.720000, 9.640000)">
+                  <g id="Group-3" transform="translate(4.800000, 0.137856)">
+                    <mask id="mask-2" fill="white">
+                      <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-2"></g>
+                    <path [ngStyle]="{'fill': activeTab === 'Pets' ? '#AA68CC' : '#FFFFFF'}" d="M18.120768,14.405088 C16.960128,14.405088 16.020288,13.464288 16.020288,12.304608 C16.020288,11.143968 16.960128,10.203168 18.120768,10.203168 C19.280448,10.203168 20.221248,11.143968 20.221248,12.304608 C20.221248,13.464288 19.280448,14.405088 18.120768,14.405088 L18.120768,14.405088 Z M15.809088,22.073568 C15.809088,22.073568 15.280128,22.963488 13.420608,24.299808 L13.421568,24.285408 C13.162368,24.490848 12.837888,24.620448 12.480768,24.620448 C12.128448,24.620448 11.807808,24.494688 11.550528,24.294048 L11.550528,24.299808 C9.691968,22.963488 9.163008,22.073568 9.163008,22.073568 L9.167808,22.072608 C8.924928,21.735648 8.778048,21.325728 8.778048,20.879328 C8.778048,20.108448 9.209088,19.445088 9.839808,19.096608 L9.831168,19.090848 C9.831168,19.090848 9.892608,19.059168 9.994368,19.012128 C10.012608,19.005408 10.028928,18.996768 10.047168,18.989088 C10.680768,18.710688 12.662208,18.014688 14.847168,18.966048 C14.923008,18.994848 14.995008,19.027488 15.067008,19.063968 C15.088128,19.073568 15.108288,19.081248 15.129408,19.090848 L15.124608,19.094688 C15.757248,19.443168 16.190208,20.106528 16.190208,20.879328 C16.190208,21.325728 16.043328,21.735648 15.800448,22.072608 L15.809088,22.073568 Z M6.954048,14.405088 C5.794368,14.405088 4.853568,13.464288 4.853568,12.304608 C4.853568,11.143968 5.794368,10.203168 6.954048,10.203168 C8.114688,10.203168 9.055488,11.143968 9.055488,12.304608 C9.055488,13.464288 8.114688,14.405088 6.954048,14.405088 L6.954048,14.405088 Z M20.610048,5.250528 C18.815808,2.478048 15.780288,0.822048 12.491328,0.822048 C9.195648,0.822048 6.157248,2.482848 4.363968,5.264928 C4.331328,5.317728 4.292928,5.365728 4.250688,5.408928 C3.573888,6.439968 -0.811392,13.504608 0.290688,21.847968 C0.325248,22.118688 1.215168,28.188768 11.836608,28.774368 C11.865408,28.776288 11.894208,28.779168 11.921088,28.783008 L12.253248,28.798368 C12.283008,28.796448 12.313728,28.794528 12.342528,28.796448 L12.643008,28.799328 L12.647808,28.799328 C12.660288,28.799328 12.672768,28.800288 12.685248,28.800288 C12.706368,28.799328 12.723648,28.798368 12.727488,28.798368 C12.907968,28.795488 13.099008,28.786848 13.331328,28.768608 C13.362048,28.764768 13.392768,28.760928 13.423488,28.759008 C23.867328,28.070688 24.667008,21.929568 24.673728,21.868128 C25.863168,12.860448 20.683008,5.356128 20.630208,5.281248 C20.623488,5.270688 20.616768,5.260128 20.610048,5.250528 L20.610048,5.250528 Z" id="Fill-1" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                  </g>
+                  <path [ngStyle]="{'fill': activeTab === 'Pets' ? '#AA68CC' : '#FFFFFF'}" d="M34.479264,10.362144 C34.453344,10.304544 34.461024,10.101024 34.342944,9.835104 C34.227744,9.480864 34.067424,9.146784 33.870624,8.838624 C32.828064,6.779424 30.581664,3.162144 26.859744,1.429344 C26.859744,1.429344 25.488864,0.800544 24.121824,1.276704 C25.240224,2.096544 26.224224,3.118944 27.007584,4.322784 C27.245664,4.662624 30.302304,9.129504 31.279584,15.419424 C33.163104,14.926944 34.559904,13.229664 34.559904,11.191584 C34.559904,10.907424 34.531104,10.630944 34.479264,10.362144" id="Fill-4" fill="#FFFFFF"></path>
+                  <g id="Group-8" transform="translate(0.000000, 1.097856)">
+                    <mask id="mask-4" fill="white">
+                      <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="Clip-7"></g>
+                    <path [ngStyle]="{'fill': activeTab === 'Pets' ? '#AA68CC' : '#FFFFFF'}" d="M7.649856,3.112896 C8.419776,1.958016 9.376896,0.979776 10.458816,0.185856 C9.085056,-0.302784 7.699776,0.331776 7.699776,0.331776 C3.978816,2.063616 1.731456,5.681856 0.688896,7.741056 C0.492096,8.049216 0.331776,8.382336 0.216576,8.737536 C0.099456,9.002496 0.108096,9.206976 0.080256,9.264576 C0.029376,9.533376 -0.000384,9.809856 -0.000384,10.094016 C-0.000384,12.134016 1.400256,13.833216 3.286656,14.323776 C4.273536,7.965696 7.391616,3.463296 7.566336,3.215616 C7.592256,3.179136 7.620096,3.144576 7.649856,3.112896" id="Fill-6" fill="#FFFFFF" mask="url(#mask-4)"></path>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div (click)="onSelectTab('FarmAnimals')" class="tab active-tab tab-4"
+         [class.active-tab]="activeTab === 'FarmAnimals'">
+      <svg width="32px" height="27px" viewBox="0 0 32 27" style="margin-top: -4px">
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="9-Context-1-Girl" transform="translate(-1194.000000, -506.000000)" fill="#FFFFFF">
+            <g id="mainNav" transform="translate(1170.000000, 240.000000)">
+              <g id="itemFarmAnimals" transform="translate(15.000000, 255.000000)">
+                <g id="iconFarmAnimals" transform="translate(9.640000, 11.559800)"
+                   [ngStyle]="{'fill': activeTab === 'FarmAnimals' ? '#AA68CC' : '#FFFFFF'}">
+                  <path d="M20.153472,11.081184 C19.328832,11.081184 18.658752,10.412064 18.658752,9.587424 C18.658752,8.761824 19.328832,8.092704 20.153472,8.092704 C20.978112,8.092704 21.648192,8.761824 21.648192,9.587424 C21.648192,10.412064 20.978112,11.081184 20.153472,11.081184 M15.360192,20.724384 C11.887872,20.724384 9.072192,18.677664 9.072192,16.152864 C9.072192,13.628064 11.887872,11.581344 15.360192,11.581344 C18.832512,11.581344 21.648192,13.628064 21.648192,16.152864 C21.648192,18.677664 18.832512,20.724384 15.360192,20.724384 M10.566912,8.092704 C11.391552,8.092704 12.060672,8.761824 12.060672,9.587424 C12.060672,10.412064 11.391552,11.081184 10.566912,11.081184 C9.741312,11.081184 9.072192,10.412064 9.072192,9.587424 C9.072192,8.761824 9.741312,8.092704 10.566912,8.092704 M27.251712,11.071584 C27.190272,10.216224 27.043392,9.385824 26.811072,8.589024 C27.310272,8.210784 27.772992,7.766304 28.181952,7.254624 C29.378112,5.760864 29.936832,3.964704 29.898432,2.190624 C27.693312,1.490784 25.275072,1.809504 23.319552,3.059424 C21.206592,1.162464 18.421632,-9.60000011e-05 15.360192,-9.60000011e-05 C12.297792,-9.60000011e-05 9.513792,1.162464 7.400832,3.059424 C5.445312,1.809504 3.027072,1.490784 0.821952,2.190624 C0.783552,3.964704 1.341312,5.760864 2.537472,7.254624 C2.948352,7.766304 3.410112,8.210784 3.909312,8.589024 C3.676992,9.385824 3.530112,10.216224 3.468672,11.071584 C1.373952,12.592224 0.000192,15.051744 0.000192,17.822304 C0.000192,22.413024 3.755712,26.168544 8.345472,26.168544 L22.373952,26.168544 C26.964672,26.168544 30.720192,22.413024 30.720192,17.822304 C30.720192,15.051744 29.345472,12.592224 27.251712,11.071584" id="Fill-1"></path>
+                  <path d="M13.284864,14.641344 C12.823104,14.641344 12.448704,15.318144 12.448704,16.153344 C12.448704,16.987584 12.823104,17.664384 13.284864,17.664384 C13.746624,17.664384 14.121984,16.987584 14.121984,16.153344 C14.121984,15.318144 13.746624,14.641344 13.284864,14.641344" id="Fill-4"></path>
+                  <path d="M17.568768,14.641344 C17.107008,14.641344 16.732608,15.318144 16.732608,16.153344 C16.732608,16.987584 17.107008,17.664384 17.568768,17.664384 C18.030528,17.664384 18.404928,16.987584 18.404928,16.153344 C18.404928,15.318144 18.030528,14.641344 17.568768,14.641344" id="Fill-6"></path>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="btn-next-screen purple" (click)="goNext()">
+    <img src="assets/images/iconArrow.svg" />
+  </div>
+</div>

@@ -1,0 +1,94 @@
+<div class="parent purple-bg-02">
+  <div class="gender-wrapper gender-{{gender}}">
+    <img class="{{gender}} z-0" src="assets/images/{{gender}}Naked.svg" />
+    <svg id="{{gender}}-shadow" width="178px" height="29px" viewBox="0 0 178 29">
+      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-887.000000, -683.000000)">
+          <path d="M920.750129,683.038484 C904.173956,685.978695 897.858728,689.671851 890.977175,694.42076 C886.123941,697.769941 885.242876,702.252552 890.977175,705.882912 C905.788667,715.260005 930.525984,711.211335 933.567109,710.661886 C936.608234,710.112436 974.009532,705.882912 985.357013,705.882912 C996.704494,705.882912 1011.41083,705.882912 1038.06606,705.882912 C1064.7213,705.882912 1069.80213,703.051486 1061.0901,697.704741 C1055.28208,694.140244 1039.91665,694.140244 1014.9938,697.704741 L933.567109,693.611869 C927.568973,686.111255 923.296646,682.586794 920.750129,683.038484 Z"></path>
+        </g>
+      </g>
+    </svg>
+    <img [ngStyle]="{'top.px': selected.hair.position[0],'left.px':selected.hair.position[1],'width.px':selected.hair.width}" class="ui-element z-2" src="assets/images/{{gender}}/Hair/{{selected.hair.src}}.svg" />
+    <img [ngStyle]="{'top.px': selected.tops.position[0],'left.px':selected.tops.position[1],'width.px':selected.tops.width}" class="ui-element z-3" src="assets/images/{{gender}}/Tops/{{selected.tops.src}}.svg" />
+    <img [ngStyle]="{'top.px': selected.pants.position[0],'left.px':selected.pants.position[1],'width.px':selected.pants.width}" class="ui-element z-2" src="assets/images/{{gender}}/Pants/{{selected.pants.src}}.svg" />
+    <img [ngStyle]="{'top.px': selected.shoes.position[0],'left.px':selected.shoes.position[1],'width.px':selected.shoes.width}" class="ui-element z-1" src="assets/images/{{gender}}/Shoes/{{selected.shoes.src}}.svg" />
+    <img [ngStyle]="{'top.px': selected.accessories.position[0],'left.px':selected.accessories.position[1],'width.px':selected.accessories.width}" class="ui-element z-2" src="assets/images/{{gender}}/Accessories/{{selected.accessories.src}}.svg" />
+  </div>
+
+  <!-- indicators on body -->
+  <div *ngIf="symptoms.indexOf('Headache') !== -1" style="background-color: #A29FF2" [ngStyle]="{'top.px': symptomsData[gender]['Headache'][0],'left.px':symptomsData[gender]['Headache'][1]}" class="symptom-indicator"></div>
+  <div *ngIf="symptoms.indexOf('Memory Loss') !== -1" style="background-color: #FFCC00" [ngStyle]="{'top.px': symptomsData[gender]['Memory Loss'][0],'left.px':symptomsData[gender]['Memory Loss'][1]}" class="symptom-indicator"></div>
+  <div *ngIf="symptoms.indexOf('Fatigue') !== -1" style="background-color: #FFACB2" [ngStyle]="{'top.px': symptomsData[gender]['Fatigue'][0],'left.px':symptomsData[gender]['Fatigue'][1]}" class="symptom-indicator"></div>
+  <div *ngIf="symptoms.indexOf('Vomiting') !== -1" style="background-color: #5EA0F0" [ngStyle]="{'top.px': symptomsData[gender]['Vomiting'][0],'left.px':symptomsData[gender]['Vomiting'][1]}" class="symptom-indicator"></div>
+  <div *ngIf="symptoms.indexOf('Nausea') !== -1" style="background-color: #6AC769" [ngStyle]="{'top.px': symptomsData[gender]['Nausea'][0],'left.px':symptomsData[gender]['Nausea'][1]}" class="symptom-indicator"></div>
+  <div *ngIf="symptoms.indexOf('Stomach ache') !== -1" style="background-color: #CF3976" [ngStyle]="{'top.px': symptomsData[gender]['Stomach ache'][0],'left.px':symptomsData[gender]['Stomach ache'][1]}" class="symptom-indicator"></div>
+  <div *ngIf="symptoms.indexOf('Flank Pain') !== -1" style="background-color: #C4BB5A" [ngStyle]="{'top.px': symptomsData[gender]['Flank Pain'][0],'left.px':symptomsData[gender]['Flank Pain'][1]}" class="symptom-indicator"></div>
+  <div *ngIf="symptoms.indexOf('Rash') !== -1" style="background-color: #00D0C9" [ngStyle]="{'top.px': symptomsData[gender]['Rash'][0],'left.px':symptomsData[gender]['Rash'][1]}" class="symptom-indicator"></div>
+  <div *ngIf="symptoms.indexOf('Difficulty Urinating') !== -1" style="background-color: #FF954D" [ngStyle]="{'top.px': symptomsData[gender]['Difficulty Urinating'][0],'left.px':symptomsData[gender]['Difficulty Urinating'][1]}" class="symptom-indicator"></div>
+  <div *ngIf="symptoms.indexOf('Diarrhea') !== -1" style="background-color: #FF353B" [ngStyle]="{'top.px': symptomsData[gender]['Diarrhea'][0],'left.px':symptomsData[gender]['Diarrhea'][1]}" class="symptom-indicator"></div>
+
+  <!-- cliclable icon -->
+  <div class="symptom-circle circle-1" (click)="onSelectSymptom('Headache')">
+    <div *ngIf="symptoms.indexOf('Headache') !== -1" class="symptom-selected border-1">
+      <div class="close-icon close-right" [class.close-1]="symptoms.indexOf('Headache') !== -1"><img src="assets/images/iconClose.svg" /></div>
+    </div>
+    <img class="symptom-icon" style="width: 67px" src="assets/images/Symptoms/iconSymHeadache.svg">
+  </div>
+  <div class="symptom-circle circle-2" (click)="onSelectSymptom('Nausea')">
+    <div *ngIf="symptoms.indexOf('Nausea') !== -1" class="symptom-selected border-2">
+      <div class="close-icon close-left" [class.close-2]="symptoms.indexOf('Nausea') !== -1"><img src="assets/images/iconClose.svg" /></div>
+    </div>
+    <img class="symptom-icon" style="width: 60px" src="assets/images/Symptoms/iconSymNausea.svg">
+  </div>
+  <div class="symptom-circle circle-3" (click)="onSelectSymptom('Vomiting')">
+    <div *ngIf="symptoms.indexOf('Vomiting') !== -1" class="symptom-selected border-3">
+      <div class="close-icon close-right" [class.close-3]="symptoms.indexOf('Vomiting') !== -1"><img src="assets/images/iconClose.svg" /></div>
+    </div>
+    <img class="symptom-icon" style="width: 82px" src="assets/images/Symptoms/iconSymVomiting.svg">
+  </div>
+  <div class="symptom-circle circle-4" (click)="onSelectSymptom('Stomach ache')">
+    <div *ngIf="symptoms.indexOf('Stomach ache') !== -1" class="symptom-selected border-4">
+      <div class="close-icon close-left" [class.close-4]="symptoms.indexOf('Stomach ache') !== -1"><img src="assets/images/iconClose.svg" /></div>
+    </div>
+    <img class="symptom-icon" style="width: 75px" src="assets/images/Symptoms/iconSymStomachache.svg">
+  </div>
+  <div class="symptom-circle circle-5" (click)="onSelectSymptom('Flank Pain')">
+    <div *ngIf="symptoms.indexOf('Flank Pain') !== -1" class="symptom-selected border-5">
+      <div class="close-icon close-right" [class.close-5]="symptoms.indexOf('Flank Pain') !== -1"><img src="assets/images/iconClose.svg" /></div>
+    </div>
+    <img class="symptom-icon" style="width: 87px" src="assets/images/Symptoms/iconSymFlankPain.svg">
+  </div>
+  <div class="symptom-circle circle-6" (click)="onSelectSymptom('Memory Loss')">
+    <div *ngIf="symptoms.indexOf('Memory Loss') !== -1" class="symptom-selected border-6">
+      <div class="close-icon close-left" [class.close-6]="symptoms.indexOf('Memory Loss') !== -1"><img src="assets/images/iconClose.svg" /></div>
+    </div>
+    <img class="symptom-icon" style="width: 65px" src="assets/images/Symptoms/iconSymMemLoss.svg">
+  </div>
+  <div class="symptom-circle circle-7" (click)="onSelectSymptom('Fatigue')">
+    <div *ngIf="symptoms.indexOf('Fatigue') !== -1" class="symptom-selected border-7">
+      <div class="close-icon close-right" [class.close-7]="symptoms.indexOf('Fatigue') !== -1"><img src="assets/images/iconClose.svg" /></div>
+    </div>
+    <img class="symptom-icon" style="width: 60px" src="assets/images/Symptoms/iconSymFatigue.svg">
+  </div>
+  <div class="symptom-circle circle-8" (click)="onSelectSymptom('Difficulty Urinating')">
+    <div *ngIf="symptoms.indexOf('Difficulty Urinating') !== -1" class="symptom-selected border-8">
+      <div class="close-icon close-left" [class.close-8]="symptoms.indexOf('Difficulty Urinating') !== -1"><img src="assets/images/iconClose.svg" /></div>
+    </div>
+    <img class="symptom-icon" style="width: 91px" src="assets/images/Symptoms/iconSymDiffUrinating.svg">
+  </div>
+  <div class="symptom-circle circle-9" (click)="onSelectSymptom('Diarrhea')">
+    <div *ngIf="symptoms.indexOf('Diarrhea') !== -1" class="symptom-selected border-9">
+      <div class="close-icon close-right" [class.close-9]="symptoms.indexOf('Diarrhea') !== -1"><img src="assets/images/iconClose.svg" /></div>
+    </div>
+    <img class="symptom-icon" style="width: 85px" src="assets/images/Symptoms/iconSymDiarrhea.svg">
+  </div>
+  <div class="symptom-circle circle-10" (click)="onSelectSymptom('Rash')">
+    <div *ngIf="symptoms.indexOf('Rash') !== -1" class="symptom-selected border-10">
+      <div class="close-icon close-left" [class.close-10]="symptoms.indexOf('Rash') !== -1"><img src="assets/images/iconClose.svg" /></div>
+    </div>
+    <img class="symptom-icon" style="width: 69px" src="assets/images/Symptoms/iconSymRash.svg">
+  </div>
+  <div class="btn-next-screen aqua" (click)="onNext()">
+    <img src="assets/images/iconArrow.svg" />
+  </div>
+</div>

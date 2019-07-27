@@ -1,0 +1,33 @@
+<div class="parent bricks-bg">
+  <img class="{{gender}}-emotion-body" src="assets/images/{{gender}}NakedFaceless.svg" />
+  <img [ngStyle]="{'top.px': selected.hair.position[0],'left.px':selected.hair.position[1],'width.px':selected.hair.width}" class="ui-element z-2" src="assets/images/{{gender}}/Hair/{{selected.hair.src}}.svg" />
+  <img [ngStyle]="{'top.px': selected.top.position[0],'left.px':selected.top.position[1],'width.px':selected.top.width}" class="ui-element z-2" src="assets/images/{{gender}}/Tops/{{selected.top.src}}.svg" />
+  <img [ngStyle]="{'top.px': selectedEmo.position[0],'left.px':selectedEmo.position[1],'width.px':selectedEmo.width}" class="ui-element" src="assets/images/Emotion/{{selectedEmo.src}}.svg" />
+  <div class="emo-1 emo-element" (click)="onSelectEmo(emotionFacesData['Fine'])">
+    <div *ngIf="selectedEmo.src === 'fine'" class="active-tab-item-turquoise"></div>
+    <img src="assets/images/Emotion/fine.svg" />
+  </div>
+  <div class="emo-2 emo-element" (click)="onSelectEmo(emotionFacesData['Happy'])">
+    <div *ngIf="selectedEmo.src === 'happy'" class="active-tab-item-turquoise"></div>
+    <img src="assets/images/Emotion/happy.svg" />
+  </div>
+  <div class="emo-3 emo-element" (click)="onSelectEmo(emotionFacesData['Sad'])">
+    <div *ngIf="selectedEmo.src === 'sad'" class="active-tab-item-turquoise"></div>
+    <img src="assets/images/Emotion/sad.svg" />
+  </div>
+  <div class="emo-4 emo-element" (click)="onSelectEmo(emotionFacesData['Tearful'])">
+    <div *ngIf="selectedEmo.src === 'tearful'" class="active-tab-item-turquoise"></div>
+    <img src="assets/images/Emotion/tearful.svg" />
+  </div>
+  <div class="emo-5 emo-element" (click)="onSelectEmo(emotionFacesData['Angry'])">
+    <div *ngIf="selectedEmo.src === 'angry'" class="active-tab-item-turquoise"></div>
+    <img src="assets/images/Emotion/angry.svg" />
+  </div>
+  <div class="emo-6 emo-element" (click)="onSelectEmo(emotionFacesData['Worried'])">
+    <div *ngIf="selectedEmo.src === 'worried'" class="active-tab-item-turquoise"></div>
+    <img src="assets/images/Emotion/worried.svg" />
+  </div>
+  <div class="btn-next-screen turquoise" (click)="onNext()">
+    <img src="assets/images/iconArrow.svg" />
+  </div>
+</div>

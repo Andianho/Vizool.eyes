@@ -1,0 +1,82 @@
+.girl-emotion-body {
+  position: absolute;
+  width: 505px;
+  top: 107.3px;
+  left: 389.6px;
+}
+
+.boy-emotion-body {
+  position: absolute;
+  top: 81px;
+  left: 332.24px;
+  width: 615px;
+}
+
+.emo-element {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+  position: absolute;
+  display: flex;
+
+  img {
+    margin: 0 auto;
+  }
+}
+
+.emo-1 {
+  position: absolute;
+  top: 45px;
+  left: 125.69px;
+
+  img {
+    width: 92px;
+  }
+}
+.emo-2 {
+  position: absolute;
+  top: 265px;
+  left: 58px;
+
+  img {
+    width: 92px;
+  }
+}
+.emo-3 {
+  position: absolute;
+  top: 501.39px;
+  left: 125.69px;
+
+  img {
+    width: 98px;
+  }
+}
+.emo-4 {
+  position: absolute;
+  top: 41px;
+  right: 125.31px;
+
+  img {
+    width: 95.2px;
+  }
+}
+.emo-5 {
+  position: absolute;
+  top: 271.16px;
+  right: 65.27px;
+
+  img {
+    width: 91px;
+  }
+}
+.emo-6 {
+  position: absolute;
+  top: 501.39px;
+  right: 125.31px;
+  img {
+    width: 99.4px;
+  }
+}

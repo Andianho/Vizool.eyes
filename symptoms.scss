@@ -1,0 +1,247 @@
+$color1: #A1A2EF;
+$color2: #76C170;
+$color3: #64A4EA;
+$color4: #CF3976;
+$color5: #C4BB5A;
+$color6: #FDCA2F;
+$color7: #F9AEB4;
+$color8: #FB9459;
+$color9: #FA3542;
+$color10: #43CEC7;
+
+
+.gender-girl {
+  margin-left: 155px;
+}
+
+.gender-boy {
+  margin-left: 164px;
+}
+
+.gender-wrapper {
+  position: relative;
+  .girl {
+    top: 91px;
+    left: 369px;
+    position: absolute;
+    z-index: 1;
+  }
+  .boy {
+    top: 53px;
+    left: 361px;
+    position: absolute;
+    z-index: 1;
+  }
+  #girl-shadow-pink {
+    position: absolute;
+    top: 664px;
+    left: 413px;
+
+    g:first-child {
+      fill: #ab0243;
+    }
+  }
+  #girl-shadow {
+    position: absolute;
+    top: 664px;
+    left: 413px;
+
+    g:first-child {
+      fill: #783DA2;
+    }
+  }
+  #boy-shadow-pink {
+    position: absolute;
+    top: 661px;
+    left: 398px;
+
+    g:first-child {
+      fill: #ab0243;
+    }
+  }
+  #boy-shadow {
+    position: absolute;
+    top: 661px;
+    left: 398px;
+
+    g:first-child {
+      fill: #783DA2;
+    }
+  }
+}
+
+
+.symptom-circle {
+  position: absolute;
+  width: 182px;
+  height: 182px;
+  border-radius: 50%;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+}
+
+.symptom-indicator {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.symptom-selected {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 8px;
+  left: 6px;
+  top: 6px;
+
+  .close-icon {
+    position: absolute;
+    width: 63px;
+    height: 63px;
+    border: 6px solid #fff;
+    border-radius: 50%;
+    top: 0;
+
+    img {
+      margin: 16px auto 0 auto;
+      display: block;
+    }
+  }
+
+  .close-1 {
+    background-color: $color1;
+  }
+
+  .close-2 {
+    background-color: $color2;
+  }
+
+  .close-3 {
+    background-color: $color3;
+  }
+
+  .close-4 {
+    background-color: $color4;
+  }
+
+  .close-5 {
+    background-color: $color5;
+  }
+
+  .close-6 {
+    background-color: $color6;
+  }
+
+  .close-7 {
+    background-color: $color7;
+  }
+
+  .close-8 {
+    background-color: $color8;
+  }
+
+  .close-9 {
+    background-color: $color9;
+  }
+
+  .close-10 {
+    background-color: $color10;
+  }
+
+  .close-left {
+    left: -18px;
+  }
+
+  .close-right {
+    right: -18px;
+  }
+}
+
+.border-1 {
+  border-color: $color1;
+}
+.border-2 {
+  border-color: $color2;
+}
+.border-3 {
+  border-color: $color3;
+}
+
+.border-4 {
+  border-color: $color4;
+}
+.border-5 {
+  border-color: $color5;
+}
+.border-6 {
+  border-color: $color6;
+}
+.border-7 {
+  border-color: $color7;
+}
+
+.border-8 {
+  border-color: $color8;
+}
+
+.border-9 {
+  border-color: $color9;
+}
+
+.border-10 {
+  border-color: $color10;
+}
+.symptom-icon {
+  display: block;
+  margin: 0 auto;
+}
+.circle-1 {
+  top: 68px;
+  left: 285px;
+
+
+}
+.circle-2 {
+  top: 187px;
+  left: 134px;
+}
+.circle-3 {
+  top: 307px;
+  left: 285px;
+}
+.circle-4 {
+  top: 428px;
+  left: 134px;
+}
+.circle-5 {
+  top: 548px;
+  left: 285px;
+}
+.circle-6 {
+  top: 68px;
+  right: 285px;
+}
+.circle-7 {
+  top: 187px;
+  right: 134px;
+}
+.circle-8 {
+  top: 307px;
+  right: 285px;
+}
+.circle-9 {
+  top: 428px;
+  right: 134px;
+}
+.circle-10 {
+  top: 548px;
+  right: 285px;
+}

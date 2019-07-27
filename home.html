@@ -1,0 +1,22 @@
+<div class="parent purple-bg">
+  <div class="view-title-wrapper" [class.hidden]="isPasswordFocussed">
+    <h1>Sign In</h1>
+  </div>
+
+  <div [class.password-focus]="isPasswordFocussed" class="single-input-wrapper">
+    <input #inputPassword type="text"
+           [class.input-error]="isErrorPassword"
+           [class.input-focus]="isPasswordFocussed"
+           (blur)="onBlur($event)" (focus)="onFocus($event)" class="sign-in input-purple-bg" placeholder="Password" />
+    <div class="input-password-error"
+         [class.hidden]="isErrorPassword === false">
+      <p>Password incorrect</p>
+    </div>
+  </div>
+
+  <div class="btn btn-signin"
+       [class.btn-signin-top]="isPasswordFocussed"
+       [class.btn-signin-press]="isSignInPressed" (click)="onPress(inputPassword.value)">
+    <p>Sign Up</p>
+  </div>
+</div>

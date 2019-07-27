@@ -1,0 +1,124 @@
+.build-clothes {
+
+  .boy {
+    top: 53px;
+    left: 361px;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .girl {
+    top: 91px;
+    left: 369px;
+    position: absolute;
+    z-index: 1;
+  }
+
+  #girl-shadow {
+    position: absolute;
+    top: 664px;
+    left: 413px;
+
+    g:first-child {
+      fill: #00BDD6;
+    }
+  }
+
+  #boy-shadow {
+    position: absolute;
+    top: 659px;
+    left: 395px;
+
+    g:first-child {
+      fill: #00BDD6;
+    }
+  }
+
+  .clothes-options {
+    width: 250px;
+    height: 100%;
+    position: absolute;
+    top: 6px;
+    left: 910px;
+    overflow: scroll;
+    padding: 20px;
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: flex;
+        width: 210px;
+        height: 210px;
+        border-radius: 50%;
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        margin-bottom: 20px;
+        position: relative;
+
+        img {
+          margin: 0 auto;
+        }
+      }
+    }
+
+  }
+}
+
+.clothes-options-tabs {
+  position: absolute;
+  right: 45px;
+  top: 176px;
+  height: 385px;
+
+  .tab {
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #FF6764;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    transition: all 200ms ease-in-out;
+
+    svg {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  .active-tab {
+    transform: scale(1.6, 1.6);
+    background-color: #fff;
+  }
+
+  .tab-1 {
+    top: 0
+  }
+
+  .tab-2 {
+    top: 96px;
+    padding-top: 10px;
+  }
+
+  .tab-3 {
+    top: 176px;
+    padding-top: 11px;
+  }
+
+  .tab-4 {
+    top: 256px;
+    padding-top: 15px;
+  }
+
+  .tab-5 {
+    top: 336px;
+    padding-top: 17px;
+  }
+
+  .isActiveIcon {
+    fill: "#FF6764"
+  }
+}

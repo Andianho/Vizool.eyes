@@ -1,0 +1,272 @@
+.patient-indicator-wrapper {
+  width: 800px;
+  height: 560px;
+  overflow: scroll;
+  position: absolute;
+  top: 215px;
+  left: 240px;
+}
+
+.patient-indicator-form {
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 70px 80px 70px;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+
+  .label {
+    font-size: 16px;
+    font-family: CatamaranMedium;
+    color: #5677FC;
+    margin-bottom: 5px;
+    position: relative;
+  }
+}
+
+.form-focussed {
+  top: 0;
+  height: 369px;
+
+  .patient-indicator-form {
+    padding-top: 10px;
+  }
+}
+
+.md-input {
+  width: 310px;
+  height: 60px;
+  border-radius: 4px;
+  border: 2px solid #E1E1E1;
+  color: #162E6E;
+  font-size: 28px;
+  font-family: CatamaranMedium;
+  padding: 20px;
+}
+
+.patient-indicator-title-wrapper {
+  text-align: center;
+  top: 103px;
+  width: 100%;
+  position: absolute;
+
+  h1 {
+    font-family: "CatamaranExtraBold",  sans-serif;
+    color: #fff;
+    font-size: 48px;
+  }
+}
+
+.btn-save {
+  width: 240px;
+  color: #5677FC;
+  margin: 60px auto 60px auto;
+}
+
+.date-picker {
+  line-height: 18px;
+}
+
+.tbDiagnosis-active-left {
+  background-color: #5677FC;
+  color: #fff !important;
+  position: absolute;
+  width: 155px !important;
+  height: 64px !important;
+  border-radius: 4px;
+  top: -4px;
+  left: -4px;
+  line-height: 64px !important;
+}
+
+.tbDiagnosis-active-right {
+  background-color: #5677FC;
+  color: #fff !important;
+  position: absolute;
+  width: 155px !important;
+  height: 64px !important;
+  border-radius: 4px;
+  top: -4px;
+  right: -4px;
+  line-height: 64px !important;
+}
+
+.custom-select {
+  position: relative;
+  width: 310px;
+  border: 2px solid #E1E1E1;
+  height: 60px;
+  border-radius: 4px;
+
+  div {
+    text-align: center;
+    float: left;
+    height: 60px;
+    font-family: CatamaranMedium;
+    font-size: 28px;
+    line-height: 58px;
+    width: 50%;
+    color: #162E6E;
+  }
+
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
+}
+
+.info-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #5677FC;
+  border: 3px solid #5677FC;
+  padding: 7px;
+}
+
+.adherence-wrapper {
+  width: 100%;
+  float: left;
+  position: relative;
+}
+
+.adherence-block {
+  margin-bottom: 34px;
+  overflow: hidden;
+
+  .left {
+    float: left;
+    width: 455px;
+    font-size: 22px;
+    color: #162E6E;
+  }
+
+  .right {
+    float: right;
+  }
+}
+
+.digit-input {
+  width: 100px;
+  height: 60px;
+  border-radius: 4px;
+  border: 2px solid #E1E1E1;
+  padding: 20px;
+  font-size: 28px;
+  text-align: center;
+}
+
+.comments-block {
+  width: 640px;
+  height: 120px;
+  font-size: 22px;
+  color: #162E6E;
+  padding: 20px;
+  border: 2px solid #E1E1E1;
+  border-radius: 4px;
+}
+
+.info-one {
+  position: absolute;
+  top: -7px;
+  left: 188px;
+}
+
+.info-two {
+  position: absolute;
+  top: -7px;
+  left: 180px;
+}
+
+.mt-20 {
+  margin-top: 20px !important;
+  margin-bottom: 15px !important;
+}
+
+.tooltip {
+  font-size: 22px;
+  border-radius: 8px;
+  width: 329px;
+  padding: 30px;
+  background-color: #9C28B1;
+  top: -108px;
+  text-align: center;
+  color: #fff;
+  left: 44px;
+  position: absolute;
+  font-family: CatamaranMedium;
+  box-shadow: 0 10px 20px rgba(0,0,0,.2);
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    position: absolute;
+    left: 142px;
+    background: #9c28b1;
+    transform: rotate(45deg);
+  }
+}
+
+.review-block {
+  overflow: hidden;
+  margin-bottom: 28px;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+
+  p {
+    font-family: CatamaranMedium;
+    font-size: 22px;
+    color: #162E6E;
+    margin: -10px 0 10px;
+  }
+}
+
+h2 {
+  font-family: "CatamaranExtraBold",  sans-serif;
+  color: #162E6E;
+  font-size: 36px;
+  margin-top: -5px;
+  margin-bottom: 35px;
+}
+
+.validation-error-wrapper {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  background-color: #F54236;
+  margin-top: 70px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 30px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding-left: 20px;
+  z-index: 1;
+
+  div {
+    background-color: #F54236;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: -6px;
+    transform: rotate(45deg);
+    z-index: 0;
+    border-radius: 3px;
+  }
+
+  p {
+    z-index: 1;
+    position: relative;
+    margin: 0;
+  }
+}
+
+.validaion-error-small {
+  width: 310px;
+  position: absolute;
+  top: 40px;
+}

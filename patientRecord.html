@@ -1,0 +1,17 @@
+<div class="parent pink-bg">
+  <header></header>
+  <div class="view-title-wrapper">
+    <h1>Patient Record</h1>
+  </div>
+
+  <div class="pts-rec-btns">
+    <div class="btn btn-pts-rec"
+         [class.btn-pts-rec-press]="isStartNewPress" (click)="onPressStartNew()">
+      <p>Start New<p>
+    </div>
+
+    <div class="btn btn-pts-rec"
+         [class.btn-pts-rec-press]="isOpenExisting" (click)="onPressOpenExisting()">
+      <p>Open Existing<p>
+    </div>
+</div>

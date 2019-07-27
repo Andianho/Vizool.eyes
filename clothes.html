@@ -1,0 +1,184 @@
+<div class="parent blue-bg build-clothes">
+  <img class="bench" src="assets/images/bgElementBench.svg" />
+  <img class="{{gender}} z-0" src="assets/images/{{gender}}Naked.svg" />
+  <img [ngStyle]="{'top.px': selected.hair.position[0],'left.px':selected.hair.position[1],'width.px':selected.hair.width}" class="ui-element z-2" src="assets/images/{{gender}}/Hair/{{selected.hair.src}}.svg" />
+  <img [ngStyle]="{'top.px': selected.tops.position[0],'left.px':selected.tops.position[1],'width.px':selected.tops.width}" class="ui-element z-3" src="assets/images/{{gender}}/Tops/{{selected.tops.src}}.svg" />
+  <img [ngStyle]="{'top.px': selected.pants.position[0],'left.px':selected.pants.position[1],'width.px':selected.pants.width}" class="ui-element z-2" src="assets/images/{{gender}}/Pants/{{selected.pants.src}}.svg" />
+  <img [ngStyle]="{'top.px': selected.shoes.position[0],'left.px':selected.shoes.position[1],'width.px':selected.shoes.width}" class="ui-element z-1" src="assets/images/{{gender}}/Shoes/{{selected.shoes.src}}.svg" />
+  <img [ngStyle]="{'top.px': selected.accessories.position[0],'left.px':selected.accessories.position[1],'width.px':selected.accessories.width}" class="ui-element z-2" src="assets/images/{{gender}}/Accessories/{{selected.accessories.src}}.svg" />
+  <svg id="{{gender}}-shadow" width="178px" height="29px" viewBox="0 0 178 29">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+      <g transform="translate(-887.000000, -683.000000)">
+        <path d="M920.750129,683.038484 C904.173956,685.978695 897.858728,689.671851 890.977175,694.42076 C886.123941,697.769941 885.242876,702.252552 890.977175,705.882912 C905.788667,715.260005 930.525984,711.211335 933.567109,710.661886 C936.608234,710.112436 974.009532,705.882912 985.357013,705.882912 C996.704494,705.882912 1011.41083,705.882912 1038.06606,705.882912 C1064.7213,705.882912 1069.80213,703.051486 1061.0901,697.704741 C1055.28208,694.140244 1039.91665,694.140244 1014.9938,697.704741 L933.567109,693.611869 C927.568973,686.111255 923.296646,682.586794 920.750129,683.038484 Z"></path>
+      </g>
+    </g>
+  </svg>
+  <div class="clothes-options" *ngIf="gender === 'girl'">
+    <ul *ngIf="activeTab === 'Hair'">
+      <li *ngFor="let item of girlData.hair" (click)="onSelectHair(item)">
+        <div *ngIf="selected.hair.src === item.src" class="active-tab-item"></div>
+        <img
+          [ngStyle]="{'width.px': item.icon.width}"
+          src="assets/images/{{gender}}/{{activeTab}}/{{item.icon.src}}.svg">
+      </li>
+    </ul>
+    <ul *ngIf="activeTab === 'Tops'">
+      <li *ngFor="let item of girlData.tops" (click)="onSelectTops(item)">
+        <div *ngIf="selected.tops.src === item.src" class="active-tab-item"></div>
+        <img
+          [ngStyle]="{'width.px': item.icon.width}"
+          src="assets/images/{{gender}}/{{activeTab}}/{{item.icon.src}}.svg">
+      </li>
+    </ul>
+    <ul *ngIf="activeTab === 'Pants'">
+      <li *ngFor="let item of girlData.pants" (click)="onSelectPants(item)">
+        <div *ngIf="selected.pants.src === item.src" class="active-tab-item"></div>
+        <img
+          [ngStyle]="{'width.px': item.icon.width}"
+          src="assets/images/{{gender}}/{{activeTab}}/{{item.icon.src}}.svg">
+      </li>
+    </ul>
+    <ul *ngIf="activeTab === 'Shoes'">
+      <li *ngFor="let item of girlData.shoes" (click)="onSelectShoes(item)">
+        <div *ngIf="selected.shoes.src === item.src" class="active-tab-item"></div>
+        <img
+          [ngStyle]="{'width.px': item.icon.width}"
+          src="assets/images/{{gender}}/{{activeTab}}/{{item.icon.src}}.svg">
+      </li>
+    </ul>
+    <ul *ngIf="activeTab === 'Accessories'">
+      <li *ngFor="let item of girlData.accessories" (click)="onSelectAccessory(item)">
+        <div *ngIf="selected.accessories.src === item.src" class="active-tab-item"></div>
+        <img
+          [ngStyle]="{'width.px': item.icon.width}"
+          src="assets/images/{{gender}}/{{activeTab}}/{{item.icon.src}}.svg">
+      </li>
+    </ul>
+  </div>
+  <div class="clothes-options" *ngIf="gender === 'boy'">
+    <ul *ngIf="activeTab === 'Hair'">
+      <li *ngFor="let item of boyData.hair" (click)="onSelectHair(item)">
+        <div *ngIf="selected.hair.src === item.src" class="active-tab-item"></div>
+        <img
+          [ngStyle]="{'width.px': item.icon.width}"
+          src="assets/images/{{gender}}/{{activeTab}}/{{item.icon.src}}.svg">
+      </li>
+    </ul>
+    <ul *ngIf="activeTab === 'Tops'">
+      <li *ngFor="let item of boyData.tops" (click)="onSelectTops(item)">
+        <div *ngIf="selected.tops.src === item.src" class="active-tab-item"></div>
+        <img
+          [ngStyle]="{'width.px': item.icon.width}"
+          src="assets/images/{{gender}}/{{activeTab}}/{{item.icon.src}}.svg">
+      </li>
+    </ul>
+    <ul *ngIf="activeTab === 'Pants'">
+      <li *ngFor="let item of boyData.pants" (click)="onSelectPants(item)">
+        <div *ngIf="selected.pants.src === item.src" class="active-tab-item"></div>
+        <img
+          [ngStyle]="{'width.px': item.icon.width}"
+          src="assets/images/{{gender}}/{{activeTab}}/{{item.icon.src}}.svg">
+      </li>
+    </ul>
+    <ul *ngIf="activeTab === 'Shoes'">
+      <li *ngFor="let item of boyData.shoes" (click)="onSelectShoes(item)">
+        <div *ngIf="selected.shoes.src === item.src" class="active-tab-item"></div>
+        <img
+          [ngStyle]="{'width.px': item.icon.width}"
+          src="assets/images/{{gender}}/{{activeTab}}/{{item.icon.src}}.svg">
+      </li>
+    </ul>
+    <ul *ngIf="activeTab === 'Accessories'">
+      <li *ngFor="let item of boyData.accessories" (click)="onSelectAccessory(item)">
+        <div *ngIf="selected.accessories.src === item.src" class="active-tab-item"></div>
+        <img
+          [ngStyle]="{'width.px': item.icon.width}"
+          src="assets/images/{{gender}}/{{activeTab}}/{{item.icon.src}}.svg">
+      </li>
+    </ul>
+  </div>
+  <div class="clothes-options-tabs">
+    <div (click)="onSelectTab('Hair')" class="tab active-tab tab-1"
+         [class.active-tab]="activeTab === 'Hair'">
+      <svg width="25px" height="50px" viewBox="0 0 40 50" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g transform="translate(-1190.000000, -215.000000)"
+             [ngStyle]="{'fill': activeTab === 'Hair' ? '#FF6764' : '#FFFFFF'}">
+            <g id="mainNav" transform="translate(1170.000000, 200.000000)">
+              <g id="itemHairActive">
+                <path d="M50.4649544,50.7866486 C50.4649544,56.5566262 45.7707104,61.2508702 40.0007328,61.2508702 C34.2307551,61.2508702 29.5365112,56.5566262 29.5365112,50.7866486 L29.5365112,42.4519107 C29.5365112,41.1035797 29.8017807,39.8153373 30.2707654,38.6296853 C32.9014766,39.819734 36.28696,40.5451947 40.0007328,40.5451947 C43.7145056,40.5451947 47.099989,39.819734 49.7321658,38.6296853 C50.1996849,39.8153373 50.4649544,41.1021141 50.4649544,42.4519107 L50.4649544,50.7866486 Z M60,35.8172425 C60,24.7726523 51.045323,15.8179753 40.0007328,15.8179753 C28.954677,15.8179753 20,24.7726523 20,35.8172425 C20,41.698604 22.5603635,46.9629575 26.6053567,50.6181072 L26.6053567,50.7866486 C26.6053567,58.173158 32.6142234,64.1820247 40.0007328,64.1820247 C47.3872422,64.1820247 53.3961089,58.173158 53.3961089,50.7866486 L53.3961089,50.6181072 C57.4396365,46.961492 60,41.698604 60,35.8172425 L60,35.8172425 Z" id="iconHair"></path>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div (click)="onSelectTab('Tops')" class="tab tab-2"
+         [class.active-tab]="activeTab === 'Tops'">
+      <svg width="30px" height="30px" viewBox="0 0 30 30">
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g transform="translate(-1195.000000, -305.000000)" [ngStyle]="{'fill': activeTab === 'Tops' ? '#FF6764' : '#FFFFFF'}">
+            <g transform="translate(1170.000000, 200.000000)">
+              <g transform="translate(15.000000, 95.000000)">
+                <g transform="translate(10.000000, 10.000000)">
+                  <path d="M30,14.8917727 C30,8.2220459 25.7606557,2.55618361 19.8634426,0.509084153 L19.8634426,0.937674317 C19.8634426,3.63297486 17.6872131,5.83822077 15.027377,5.83822077 C12.367541,5.83822077 10.1913115,3.63297486 10.1913115,0.937674317 L10.1913115,0.489648087 C4.2657377,2.52063388 0,8.20144699 0,14.8917727 L5.24590164,14.8917727 L5.24590164,29.5103519 L24.7540984,29.5103519 L24.7540984,14.8917727 L30,14.8917727 Z"></path>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div (click)="onSelectTab('Pants')" class="tab tab-3"
+         [class.active-tab]="activeTab === 'Pants'">
+      <svg width="26px" height="25px" viewBox="0 0 26 25">
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g transform="translate(-1197.000000, -388.000000)" [ngStyle]="{'fill': activeTab === 'Pants' ? '#FF6764' : '#FFFFFF'}">
+            <g transform="translate(1170.000000, 200.000000)">
+              <g transform="translate(15.000000, 175.000000)">
+                <g transform="translate(12.034667, 12.849020)">
+                  <path d="M25.7419767,11.2112745 C23.1311924,10.7240196 21.0841336,8.62205882 20.6704081,5.98480392 L25.652761,5.98480392 L25.7419767,11.2112745 Z M25.6194277,4.0245098 L0.380212016,4.0245098 L0.420408094,1.6627451 C0.428251232,1.21078431 0.796878683,0.849019608 1.24883947,0.849019608 L24.7508003,0.849019608 C25.202761,0.849019608 25.5713885,1.21078431 25.5792316,1.6627451 L25.6194277,4.0245098 Z M5.24854535,5.98529412 C4.83874143,8.59411765 2.82893751,10.672549 0.258349271,11.1892157 L0.346584565,5.98529412 L5.24854535,5.98529412 Z M18.6887414,5.98529412 C19.1318787,9.71666667 22.065212,12.6862745 25.7759963,13.1941176 L25.965212,24.3088235 C25.9730552,24.7715686 25.5995257,25.1509804 25.1367806,25.1509804 L16.3122708,25.1509804 C15.9005061,25.1509804 15.5505061,24.8490196 15.4916826,24.4411765 L14.2769767,16.0372549 L11.7230552,16.0372549 L10.5073689,24.4411765 C10.4485453,24.8490196 10.0995257,25.1509804 9.68776104,25.1509804 L0.862270839,25.1509804 C0.399525741,25.1509804 0.0259963296,24.7715686 0.034819859,24.3088235 L0.224035545,13.1823529 C3.89560417,12.6431373 6.78972182,9.68921569 7.2299179,5.98529412 L12.0191336,5.98529412 L12.0191336,12.2990196 L13.9799179,12.2990196 L13.9799179,5.98529412 L18.6887414,5.98529412 Z"></path>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div (click)="onSelectTab('Shoes')" class="tab tab-4"
+         [class.active-tab]="activeTab === 'Shoes'">
+      <svg width="30px" height="19px" viewBox="0 0 30 19">
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g transform="translate(-1195.000000, -471.000000)" [ngStyle]="{'fill': activeTab === 'Shoes' ? '#FF6764' : '#FFFFFF'}">
+            <g transform="translate(1170.000000, 200.000000)">
+              <g transform="translate(15.000000, 255.000000)">
+                <g transform="translate(10.293922, 15.534755)">
+                  <path d="M0.294313725,17.5044608 L0.294313725,17.3319118 L29.7060784,17.3319118 L29.7060784,17.5044608 C29.7060784,18.5868137 28.8276471,19.4652451 27.7452941,19.4652451 L2.25509804,19.4652451 C1.1727451,19.4652451 0.294313725,18.5868137 0.294313725,17.5044608 Z M29.6811765,13.2376961 L29.7056863,13.2376961 L29.7056863,15.3710294 L22.3615686,15.3710294 L8.79686275,15.3710294 L0.293921569,15.3710294 L0.293921569,12.3729902 L0.293921569,5.83867647 L0.293921569,0.534754902 L10.9821569,0.534754902 L13.3586275,1.8347549 L10.162549,5.03083333 C9.77921569,5.41416667 9.77921569,6.03377451 10.162549,6.41710784 C10.3537255,6.60828431 10.6047059,6.70436275 10.8556863,6.70436275 C11.1066667,6.70436275 11.3576471,6.60828431 11.5488235,6.41710784 L15.1498039,2.81514706 L17.1890196,3.93083333 L14.567451,6.55240196 C14.185098,6.93573529 14.185098,7.55632353 14.567451,7.93867647 C14.7596078,8.13083333 15.0105882,8.22593137 15.2615686,8.22593137 C15.5115686,8.22593137 15.762549,8.13083333 15.9547059,7.93867647 L18.9811765,4.91122549 L20.6762745,5.83867647 L22.3615686,5.83867647 L22.3615686,5.86612745 C26.3017647,6.13573529 29.4390196,9.29161765 29.6811765,13.2376961 Z"></path>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div (click)="onSelectTab('Accessories')" class="tab tab-5"
+         [class.active-tab]="activeTab === 'Accessories'">
+      <svg width="39px" height="15px" viewBox="0 0 39 15">
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="7-Clothes-Girl" transform="translate(-1191.000000, -553.000000)" [ngStyle]="{'fill': activeTab === 'Accessories' ? '#FF6764' : '#FFFFFF'}">
+            <g id="mainNav" transform="translate(1170.000000, 200.000000)">
+              <g id="itemAccessories" transform="translate(15.000000, 335.000000)">
+                <g id="iconAccessories" transform="translate(6.000000, 17.509314)">
+                  <path d="M38.245098,6.99362745 L36.1696078,6.99362745 C35.677451,3.33382353 32.5490196,0.509313725 28.754902,0.509313725 C25.2382353,0.509313725 22.2960784,2.93578431 21.4901961,6.20343137 C20.8313725,5.8622549 20.0666667,5.65539216 19.2401961,5.65539216 C18.327451,5.65539216 17.4813725,5.89656863 16.7803922,6.30441176 C16.0117647,2.98578431 13.0431373,0.509313725 9.49019608,0.509313725 C5.69509804,0.509313725 2.56764706,3.33382353 2.0745098,6.99362745 L0,6.99362745 L0,8.95441176 L2.06666667,8.95441176 C2.5372549,12.6397059 5.67745098,15.4906863 9.49019608,15.4906863 C13.2990196,15.4906863 16.4372549,12.6446078 16.9117647,8.96421569 C17.1676471,8.20245098 18.127451,7.61617647 19.2401961,7.61617647 C20.1,7.61617647 20.8637255,7.96911765 21.2882353,8.47892157 C21.5372549,12.3916667 24.7794118,15.4906863 28.754902,15.4906863 C32.5676471,15.4906863 35.7078431,12.6397059 36.177451,8.95441176 L38.245098,8.95441176 L38.245098,6.99362745 Z"></path>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="btn-next-screen pink" (click)="goBuildHome()">
+    <img src="assets/images/iconArrow.svg" />
+  </div>
+</div>
